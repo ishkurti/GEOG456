@@ -1,0 +1,27 @@
+body {background-color: rgb(243, 243, 129);}
+h1 {
+    cursor: cell;
+    position: relative;
+    text-align: center;
+    top: 35%;
+    color: rgb(1, 1, 1);
+}
+
+#daBlueBox {
+    cursor: progress;
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 50%;
+    background-color: rgb(73, 73, 247);
+    }
+
+.daRedBox {
+    cursor: context-menu;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    height: 40%;
+    background-color: rgb(246, 104, 104);
+}
