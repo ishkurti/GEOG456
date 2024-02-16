@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <br>
+    <h2>How many Gender Based Violence (GBV) cases were reported in each parish of Quito in 2020?</h2>
+    <br>
+    <button onclick="log()">Click me to find out!</button>
+    <br>
+    <br>
+    <h3>Thanks for visiting this humble page.</h3>
+
+</body>
+
+<script src="./data/GBV_Quito_2019_to_2020.js">
+</script>
+
+<script>
+
+var GBV2019 = waypoints.features.map(e=>e.properties.TOTAL2019);
+
+var GBV2020 = waypoints.features.map(e=>e.properties.TOTAL2020);
+
+var totalGBV = waypoints.features.map(e=>e.properties.TOTAL2019 + e.properties.TOTAL2020)
+
+//waypoints.features.forEach(e => console.log(e.properties.TOTAL2019 + e.properties.TOTAL2020))
+
+
+function log() {
+  console.log("waypoints.features.forEach(e => console.log('In 2020, the total number of reported GBV cases in the parish of ' + e.properties.DPA_DESP + ' was ' + e.properties.TOTAL2020))");
+};
+
+  </script>
+
+
+</html>
