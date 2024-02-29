@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #dcf3ca;
+}
+</style>
+
+<script src="./QuitoGBV.js"></script>
+
+</head>
+
+<body>
+
+<h2> Gender-based violence cases reported in Quito, Ecuador (by county)</h2>
+
+<table id="mytable">
+  <tr>
+    <th>County</th>
+    <th>Total cases reported in 2019</th>
+    <th>Total cases reported in 2020</th>
+  </tr>
+  
+</table>
+
+</body>
+
+<script>
+
+var x = document.getElementById('mytable')
+
+for (var i = 0; i < QuitoGBV.features.length; i++){
+    //console.log(i)
+    var myNewRow = document.createElement('tr');
+    var myNewCell1 = document.createElement('td');
+    var myNewCell2 = document.createElement('td');
+    var myNewCell3 = document.createElement('td');
+    myNewCell1.innerText = QuitoGBV.features[i].properties.DPA_DESP;
+    myNewCell2.innerText = QuitoGBV.features[i].properties.TOTAL2019;
+    myNewCell3.innerText = QuitoGBV.features[i].properties.TOTAL2020;
+    myNewRow.append(myNewCell1)
+    myNewRow.append(myNewCell2)
+    myNewRow.append(myNewCell3)
+    x.append(myNewRow)
+}
+
+</script>
+</html>
