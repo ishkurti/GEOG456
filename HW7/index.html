@@ -77,15 +77,15 @@
             "color": "black",// notice that the selected year is the name of a property of the geojson
             "weight": 0.75,
             "opacity": 2.0,
-            "fillOpacity": 0.7
+            "fillOpacity": 0.8
             }
         };
 
         function getColor(reportedCases) {
-            return reportedCases < 200 ? "#f7fbff" 
-            :reportedCases < 300 ? "#9ecae1" 
-            :reportedCases < 400 ? "#4292c6"
-            : "#08306b";
+            return reportedCases < 200 ? "#feebe2" 
+            :reportedCases < 300 ? "#fbb4b9" 
+            :reportedCases < 400 ? "#f768a1"
+            : "#ae017e";
         };
 
         var QuitoGBV = L.geoJSON(casos, {style: myStyle}).addTo(map);
