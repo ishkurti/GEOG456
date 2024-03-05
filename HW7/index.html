@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet with Slider</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
+    
+    <script src="./QuitoGBV.js"></script>
+    <style>
+        h1 {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 30px;
+        position: relative;
+        top: 10%;
+        text-align: center;
+        outline-style: ridge;
+        -webkit-text-stroke-width: 1px;
+        }
+        h2 {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        h3 {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .legend {
+            line-height: 18px;
+            color: #000;
+            background-color: #ffffff;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7; 
+        }
+        #map { height: 550px;
+            width: 700px;
+            background-color: lightslategray;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reported Gender-based violence cases in Quito, Ecuador between 2019-2020</h1>
+    <h2 id="theMonth">Month</h2>
+    
+    <input type="range" name="month" value="0" min="0" max="23" oninput="moveSlider(this.value)">
+        <div id="map"></div>
+        <div class="legend"></div>
+
+    <script>
+
+        var map = L.map('map').setView([-0.22349,-78.51207], 11);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+    
+        var selectedMonth = '0'
+
+        function myStyle(feature) {
+            //var monthIndex = selectedMonth + 1;
+            //var month = feature.properties['JAN2019'];
+            //console.log(feature.properties) 
+            //console.log(feature.properties[selectedMonth])//look at the console log and notice that selectedYear is the name of a property of the geojson, so this will give you the data for that feature. 
+            // console.log(getColor(feature.properties[selectedYear])) //look at the console log and notice that the selected year will result in a color. 
+
+            return {
+            "fillColor": getColor(feature.properties[selectedMonth]),
+            "color": "black",// notice that the selected year is the name of a property of the geojson
+            "weight": 0.75,
+            "opacity": 2.0,
+            "fillOpacity": 0.7
+            }
+        };
+
+        function getColor(reportedCases) {
+            return reportedCases < 200 ? "#f7fbff" 
+            :reportedCases < 300 ? "#9ecae1" 
+            :reportedCases < 400 ? "#4292c6"
+            : "#08306b";
+        };
+
+        var QuitoGBV = L.geoJSON(casos, {style: myStyle}).addTo(map);
+
+        function moveSlider(value) {
+            //console.log("Slider value:", value);
+            //selectedMonth = parseInt(value);
+            selectedMonth = value; // this changes the value of the selectedMonth variable
+            map.removeLayer(QuitoGBV);// leaflet method to remove a layer / 
+            QuitoGBV = L.geoJSON(casos, {style: myStyle}).addTo(map);
+            map.addLayer(QuitoGBV); // add the new layer
+            document.getElementById('theMonth').innerHTML = 'Month: '+ value  
+        }
+        moveSlider('0')
+
+        // create a leaflet legend
+        var legend = L.control({position: 'bottomright'});
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 200, 300, 400],
+                labels = [];
+
+            for (var i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + ' cases'+ '<br>' : '+ cases');
+            }
+            return div;
+        };
+        legend.addTo(map);
+
+        var legendTitle = L.control({position: 'bottomright'});
+            legendTitle.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+
+            legendTitle.update = function (props) {
+                this._div.innerHTML = '<h3><u>Total Reported GBV Cases</u></h3>';
+            };
+            legendTitle.addTo(map);
+    </script>
+        <a href="https://data.humdata.org/dataset/ecuador-gender-violence-in-quito"><h3>GBV Data from USFQ's Instituto de Geografia</h3></a>
+</body>
+</html>
