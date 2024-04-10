@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
 <style>
 * {box-sizing: border-box;}
 
@@ -35,6 +36,31 @@
   border-radius: 50%;
   border: 2px solid black;
 }
+h1{
+  font-family: 'Lato', sans-serif;
+  margin-left: 12px;
+  margin-top: 75px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  margin-left: 12px;
+  margin-top: 20px;
+}
+.home-button {
+            font-family: 'Lato', sans-serif;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
 </style>
 <script>
 function initComparisons() {
@@ -116,8 +142,9 @@ function initComparisons() {
 </script>
 </head>
 <body>
+  <a href="./index.html" class="home-button">Back to HW8 main page</a>
 
-<h1>Compare Two Images</h1>
+  <h1>Showing change using a comparison window</h1>
 
 <p>Click and slide the pink circle to compare two images:</p>
 

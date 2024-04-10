@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
     <title>Slider Change</title>
     <style>
         body {
             background-color: rgb(255, 255, 255);
             font-size: 20px;
             height: 1000px;
+            margin-top: 90px;
         }
         div#image_container {
         width: 100%;
@@ -20,6 +22,7 @@
         img {
             width: 50%;
             position: absolute;
+            margin-left: 15px;
         }
 
         #before {
@@ -48,7 +51,7 @@
             text-align: left;
         }
         #yAfter {
-         background-color: rgba(255, 193, 47, 0.5); 
+         background-color: rgba(255, 193, 47, 0.5);
         }
 
         #myP {
@@ -56,13 +59,16 @@
         top: 60px; 
         position: fixed;
         color: rgb(0, 0, 0);
+        margin-left: 30px;
+        font-weight: bold;
         }
         h3 {
             font-family: 'Lato', sans-serif;
-            color: rgb(3, 3, 3);
+            color: rgb(57, 57, 57);
             position: fixed;
-            font-size: 20px;
+            font-size: 16px;
             top: 100px;
+            margin-left: 30px;
         }
         .home-button {
             font-family: 'Lato', sans-serif;
@@ -80,10 +86,11 @@
         }
     </style>
 </head>
+
 <body>
-    <a href="index.html" class="home-button">Back to HW8 main page</a>
+    <a href="./index.html" class="home-button">Back to HW8 main page</a>
     <h3 id="h3scroll">The onscroll event</h3>
-    <p id="myP">Hadley, Massachusetts: please scroll to see changes</p>
+    <p id="myP">Showing change using a range (scrollbar): please scroll to see changes</p>
     <div id="image_container">
         <img id="after" src="./images/hadley2018.png" alt="">
         <img id="before" src="./images/hadley2012.png" alt="">
