@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Change</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            font-size: 20px;
+            height: 1000px;
+        }
+        div#image_container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 150px; 
+    }
+        img {
+            width: 60%;
+            position: absolute;
+        }
+        #before {
+            z-index: 1;
+            opacity: 1;
+        }
+        #after {
+            z-index: 3;
+            opacity: 0;
+        }
+        #myText {
+            color: rgb(0, 0, 0);
+            top: 80px;
+            display: grid;
+            width: 200px;
+            height: 1000px;
+            grid-template-rows: 100%;
+            background-color: rgba(191, 134, 2, 0.5);
+            position: absolute;
+            right: 10%;
+            margin-left: 20%;
+            font-family: 'Lato', sans-serif;
+            text-align: left;
+        }
+        #yAfter {
+            background-color: rgb(191, 134, 2, 0.5);
+        }
+        #myP {
+        font-family: 'Lato', sans-serif;
+        top: 60px; 
+        position: fixed;
+        color: rgb(0, 0, 0);
+        }
+        h3 {
+            font-family: 'Lato', sans-serif;
+            color: rgb(3, 3, 3);
+            position: fixed;
+            font-size: 20px;
+            top: 100px;
+        }
+        .home-button {
+            font-family: 'Lato', sans-serif;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">Homework 8 Mainpage</a>
+    <h3 id="h3scroll">The onscroll Event</h3>
+    <p id="myP">Hadley, Massachusetts: Scroll to see changes</p>
+    <div id="image_container">
+        <img id="after" src="./images/hadley2012.png" alt="">
+        <img id="before" src="./images/hadley2018.png" alt="">
+    </div>
+    <div id="myText">
+        <div id="yBefore">
+            <h1>Year 2012</h1>
+            <p>Hadley is an idyllic little farm town in Western Massachusetts. Once a major tobacco producing town, now it is one of the biggest producers of asparagus in the United States. Ina has enjoyed many walks and bike rides along the Connecticut River in this charming little town.</p>
+        </div>
+        <div id="yAfter">
+            <h1>Year 2018</h1>
+            <p>As you can see, not much has changed between 2012 and 2018 in this portion of Hadley. Maybe only the crops being planted.</p>
+        </div>
+    </div>
+<script>
+    var maxY = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    window.onscroll = function() {myFunction()};
+    function myFunction() {
+        var opacity = window.scrollY / maxY;
+        document.getElementById('after').style.opacity = opacity;
+        document.getElementById("h3scroll").innerText = "MaxY = " + maxY +  " Scroll Y = " + window.scrollY + " Scroll Y / Max Y = " + window.scrollY/maxY;
+    }
+</script>
+</body>
+</html>
