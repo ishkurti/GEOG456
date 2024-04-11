@@ -6,6 +6,12 @@
     <title>ina's geog456 page</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
     <style>
+         .home-image {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            height: 150px;
+}
         body {
             font-family: 'Lato', sans-serif;
             margin: 40px;
@@ -31,12 +37,16 @@
             margin-top: 20px;
         }
         a {
-            display: block;
+            
+            display: inline-block; 
             margin-bottom: 10px;
             color: #0c6bd2;
             text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
         }
         a:hover {
+            color: black;
+            background-color: yellow;
             text-decoration: underline;
         }
     </style>
@@ -46,17 +56,18 @@
         <h1>Homework Home Page / GEOG456 Spring 2024</h1>
         <h2>assignments by Ina Shkurti </h2>
         <div class="links">
-            <a href="./HW1/index.html">Homework 1: Make a webpage</a>
-            <a href="./HW2/index.html">Homework 2: Make a simple webmap</a>
-            <a href="https://data.humdata.org/dataset/ecuador-gender-violence-in-quito">Homework 3: Find a dataset</a>
-            <a href="./HW4/index.html">Homework 4: Upload your dataset to an html page</a>
-            <a href="./HW5/index.html">Homework 5: ConsoleLog printout</a>
-            <a href="./HW6/index.html">Homework 6: Make a table using an array</a>
-            <a href="./HW7/index.html">Homework 7: Make a webmap using your dataset</a>
-            <a href="./HW8/index.html">Homework 8: Visualizing change with rasters</a>
-            <a href="./Test1/index.html">Test 1: A choropleth map</a>
-            <a href="./Test2/index.html">Test 2: Mapping a hurricane path</a>
+            <a href="./HW1/index.html">Homework 1: Make a webpage</a><br>
+            <a href="./HW2/index.html">Homework 2: Make a simple webmap</a><br>
+            <a href="https://data.humdata.org/dataset/ecuador-gender-violence-in-quito">Homework 3: Find a dataset</a><br>
+            <a href="./HW4/index.html">Homework 4: Upload your dataset to an html page</a><br>
+            <a href="./HW5/index.html">Homework 5: ConsoleLog printout</a><br>
+            <a href="./HW6/index.html">Homework 6: Make a table using an array</a><br>
+            <a href="./HW7/index.html">Homework 7: Make a webmap using your dataset</a><br>
+            <a href="./HW8/index.html">Homework 8: Visualizing change with rasters</a><br>
+            <a href="./Test1/index.html">Test 1: A choropleth map</a><br>
+            <a href="./Test2/index.html">Test 2: Mapping a hurricane path</a><br>
         </div>
     </div>
+    <a href="./index.html"><img src="./HW8/images/compass.png" alt="Homepage" class="home-image" > </a>
 </body>
 </html>

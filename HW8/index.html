@@ -6,6 +6,13 @@
     <title>geog456 Homework 8</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Staatliches&display=swap" rel="stylesheet">
     <style>
+        .home-image {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            height: 150px;
+            width: auto;
+}
         body {
             font-family: 'Lato', sans-serif;
             margin: 40px;
@@ -35,27 +42,32 @@
             margin-top: 20px;
         }
         a {
-            display: block;
+            display: inline-block; 
             margin-bottom: 10px;
             color: #0c6bd2;
             text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
         }
         a:hover {
+            color: black;
+            background-color: yellow;
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
+        <a href="../index.html"><img src="./images/compass.png" alt="Homepage" class="home-image" ></a>
     <div class="container">
         <h1>Homework 8 / GEOG456</h1>
         <h2>Visualizing change with rasters</h2>
         <h4>This series of pages shows change in Hadley, Massachusetts from 2012 to 2018. No significant changes were observed in the tree cover between 2012 and 2018, apart from some minor tree cover loss and crops cultivated.</h4>
         <div class="links">
-            <a href="./0_three_images.html">Page 1: Just compare three images</a>
-            <a href="./1_scroll_change.html">Page 2: Show change using a range (scrollbar)</a>
-            <a href="./2_compare_two_images.html">Page 3: Show change using a comparison window</a>
-            <a href="./3_buttons.html">Page 4: Using buttons to select among three images</a>
+            <a href="./0_three_images.html">Page 1: Just compare three images</a><br>
+            <a href="./1_scroll_change.html">Page 2: Show change using a range (scrollbar)</a><br>
+            <a href="./2_compare_two_images.html">Page 3: Show change using a comparison window</a><br>
+            <a href="./3_buttons.html">Page 4: Using buttons to select among three images</a><br>
         </div>
     </div>
+    
 </body>
 </html>
