@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <title>Buttons & Change</title>
+</head>
+
+<style>
+    h1 {
+        font-family: 'Lato', sans-serif;
+        margin-left: 12px;
+        margin-top: 70px;
+    }
+    img {
+        position: absolute;
+        height: 400px
+    }
+    button {
+        position: absolute;
+        /* top:420px  */
+    }
+    #btn-2012 {
+        right: 800px;
+        top: 160px;
+    }
+    #btn-2016 {
+        right: 800px; 
+        top: 215px;
+    }
+    #btn-2018 {
+        right: 800px;
+        top: 270px;
+    }
+    .home-button {
+            font-family: 'Lato', sans-serif;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 10;
+        }
+</style>
+
+<body>
+    <a href="./index.html" class="home-button">Back to HW8 main page</a>
+    <h1>Use the buttons to select among the images</h1>
+    <img id = '2018' src="./images/hadley2018.png" alt="">
+    <img id = '2016' src="./images/hadley2016.png" alt="">
+    <img id = '2012' src="./images/hadley2012.png" alt="">
+    <!-- <button style="left:650px" onclick="myFunction('2018')">2018</button>
+    <button style="left:100px" onclick="myFunction('2012')">2012</button>
+    <button style="left:350px" onclick="myFunction('2016')">2016</button> -->
+    <button id="btn-2012" onclick="myFunction('2012')">2012</button>
+    <button id="btn-2016" onclick="myFunction('2016')">2016</button>
+    <button id="btn-2018" onclick="myFunction('2018')">2018</button>
+   
+</body>
+
+<script>
+    function myFunction(id){
+        var imgs = document.getElementsByTagName('img')
+        for(var i=0; i < imgs.length; i++){imgs[i].style.visibility='hidden'}
+        var image = document.getElementById(id)
+        image.style.visibility = 'visible'
+        console.log(image)
+    }
+</script>
+
+</html>
