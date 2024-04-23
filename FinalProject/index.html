@@ -1,72 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .container {
-            position: relative;
-            width: 848.709px; /* Adjust width as needed */
-            height: 600px; /* Adjust height as needed */
-        }
+  <title>Deforestation on Indigenous Territories</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .container img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease; /* Smooth transition */
-        }
+  <!-- Include Leaflet CSS and JavaScript -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
 
-        input[type="range"] {
-            width: 845px;
-            margin-top: 20px; /* Adjust as needed */
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <img src="./images/CWR2001.png" alt="">
-        <img src="./images/CWR2002.png" alt="">
-        <img src="./images/CWR2003.png" alt="">
-        <img src="./images/CWR2004.png" alt="">
-        <img src="./images/CWR2005.png" alt="">
-        <img src="./images/CWR2006.png" alt="">
-        <img src="./images/CWR2007.png" alt="">
-        <img src="./images/CWR2008.png" alt="">
-        <img src="./images/CWR2009.png" alt="">
-        <img src="./images/CWR2010.png" alt="">
-        <img src="./images/CWR2011.png" alt="">
-        <img src="./images/CWR2012.png" alt="">
-        <img src="./images/CWR2013.png" alt="">
-        <img src="./images/CWR2014.png" alt="">
-        <img src="./images/CWR2015.png" alt="">
-        <img src="./images/CWR2016.png" alt="">
-        <img src="./images/CWR2017.png" alt="">
-        <img src="./images/CWR2018.png" alt="">
-        <img src="./images/CWR2019.png" alt="">
-        <img src="./images/CWR2020.png" alt="">
-        <img src="./images/CWR2021.png" alt="">
-        <img src="./images/CWR2022.png" alt="">
+
+  <main>
+
+    <div id="slider-container">
+    <input id="mySlider" type="range" value="2001" name="Test" min="2001" max="2022" oninput="mySlider(value)">
+
+    <div id="year-text">2001</div>
     </div>
-    <input type="range" min="0" max="21" value="0" step="1" oninput='myFunction(this.value)' orient="horizontal">
-    <script>
-         var images = document.querySelectorAll('.container img');
+    <div id="map" style="width: 100%; height: 600px;"></div>
 
-            // Set opacity of the first image to 1 initially
-            images[0].style.opacity = 1;
 
-            function myFunction(value) {
-            for (var i = 0; i < images.length; i++) {
-            images[i].style.opacity = (i == value) ? 1 : 0;
-            }
-        }
-    </script>
+    <script> //   var map = L.map('map').setView([-0.0342, -76.3184], 9);   </script>
+ 
+    <script src="./data/cofanBermejo.js"></script>
+    <script src="./data/cofanDureno.js"></script>
+    <script src="./data/cofanDuvuno.js"></script>
+    <script src="./data/cofanSinangoe.js"></script>
+    <script src="./data/sionaCuyabeno.js"></script>
+    <script src="./data/siekopaiAguarico.js"></script>
+    <script src="./data/waoraniTitulado.js"></script>
+    <script src="./data/shuarArutam.js"></script>
+    <script src="./data/reservaCuyabeno.js"></script>
+    <script src="./data/reservaYasuni.js"></script>
+    <script src="./data/viasPrincipales.js"></script>
+    <script src="./data/zonaITT.js"></script>
+   
+   
+    <!-- <script src="./js/markers.js"></script> -->
+    <script src="./scriptSlider.js"></script>
+
+
+  </main>
 </body>
 </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 848.709px; /* Adjust width as needed */
+            height: 600px; /* Adjust height as needed */
+        }
+
+        .container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease; /* Smooth transition */
+        }
+
+        input[type="range"] {
+            width: 845px;
+            margin-top: 20px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./images/CWR2001.png" alt="">
+        <img src="./images/CWR2002.png" alt="">
+        <img src="./images/CWR2003.png" alt="">
+        <img src="./images/CWR2004.png" alt="">
+        <img src="./images/CWR2005.png" alt="">
+        <img src="./images/CWR2006.png" alt="">
+        <img src="./images/CWR2007.png" alt="">
+        <img src="./images/CWR2008.png" alt="">
+        <img src="./images/CWR2009.png" alt="">
+        <img src="./images/CWR2010.png" alt="">
+        <img src="./images/CWR2011.png" alt="">
+        <img src="./images/CWR2012.png" alt="">
+        <img src="./images/CWR2013.png" alt="">
+        <img src="./images/CWR2014.png" alt="">
+        <img src="./images/CWR2015.png" alt="">
+        <img src="./images/CWR2016.png" alt="">
+        <img src="./images/CWR2017.png" alt="">
+        <img src="./images/CWR2018.png" alt="">
+        <img src="./images/CWR2019.png" alt="">
+        <img src="./images/CWR2020.png" alt="">
+        <img src="./images/CWR2021.png" alt="">
+        <img src="./images/CWR2022.png" alt="">
+    </div>
+    <input type="range" min="0" max="21" value="0" step="1" oninput='myFunction(this.value)' orient="horizontal">
+    <script>
+         var images = document.querySelectorAll('.container img');
+
+            // Set opacity of the first image to 1 initially
+            images[0].style.opacity = 1;
+
+            function myFunction(value) {
+            for (var i = 0; i < images.length; i++) {
+            images[i].style.opacity = (i == value) ? 1 : 0;
+            }
+        }
+    </script>
+</body>
+</html>
