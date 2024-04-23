@@ -1,13 +1,13 @@
-var map = L.map('map').setView([-1.7, -76.048], 7);
+var map = L.map('map').setView([-1.7, -77.5], 7);
 
 var OSM = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     minZoom: 1,
     maxZoom: 12,
     tms: false,
-    attribution: 'Source: OpenStreetMap'
+    attribution: 'GEOG456 Final Project by Ina Shkurti'
 }).addTo(map).bringToBack();
 
-var myTileLayer = L.tileLayer('https://cartocollective.blob.core.windows.net/deforestation/2001/{z}/{x}/{y}.png', {
+var myTileLayer = L.tileLayer('./tiles/2001/{z}/{x}/{y}.png', {
     minZoom: 1,
     maxZoom: 12,
     tms: false
@@ -15,7 +15,7 @@ var myTileLayer = L.tileLayer('https://cartocollective.blob.core.windows.net/def
 
 function addTileLayer(year) {
     map.removeLayer(myTileLayer);
-    var tileAddress = 'https://cartocollective.blob.core.windows.net/deforestation/' + year + '/{z}/{x}/{y}.png';
+    var tileAddress = './tiles/' + year + '/{z}/{x}/{y}.png';
     myTileLayer = L.tileLayer(tileAddress, {
         minZoom: 1,
         maxZoom: 12,

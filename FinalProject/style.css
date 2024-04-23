@@ -1,5 +1,5 @@
 #map {
-    margin-top: 50px;
+    margin-top: 50px; /* Adjust top marging as needed */
     height: 600px; /* Adjust height as needed */
     position: relative;
 }
@@ -9,7 +9,7 @@
     bottom: 85px;
     left: 40%;
     transform: translateX(-50%);
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center; /* Align slider to the center */
     align-items: center;
@@ -21,12 +21,42 @@
 }
 
 #mySlider {
-    width: 85%;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
 }
+
+#mySlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #e00000;
+    cursor: pointer;
+  }
+  
+  #mySlider:-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+  }
 
 #year-text {
     margin-top: 2px; /* Add margin to separate from the slider */
     text-align: center; /* Align text to the center */
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left:10px;
 }
 
 .custom-buttons {
@@ -48,6 +78,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition for hover effect */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
 }
 
 .territory-button:hover {
