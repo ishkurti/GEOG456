@@ -28,73 +28,143 @@ function mySlider(value) {
     addTileLayer(value);
 }
 
-var territories = {
-    "Siona Cuyabeno": sionaCuyabeno,
-    "Siekopai Aguarico": siekopaiAguarico,
-    "Shuar Arutam": shuarArutam,
-    "Waorani": waoraniTitulado,
-    "Cofan Sinangoe": cofanSinangoe,
-    "Cofan Bermejo": cofanBermejo,
-    "Cofan Dureno": cofanDureno,
-    "Cofan Duvuno": cofanDuvuno,
-    "Reserva Cuyabeno": reservaCuyabeno,
-    "Reserva Yasuní": reservaYasuni,
-    "Zona Intangible Tagaeri-Taromenani": zonaITT
+var territories = {  
+    "Siona Cuyabeno": {
+        data: sionaCuyabeno,
+        center: [-0.1, -76.0], // Example coordinates
+        zoom: 10, // Example zoom level
+        label: "Siona Cuyabeno Territory"
+    },
+    "Siekopai Aguarico": {  
+        data: siekopaiAguarico,
+        center: [-0.33052,-76.21940], 
+        zoom: 11,
+        label: "Siekopai Aguarico Territory"
+    },
+    "Waorani": {
+        data: waoraniTitulado,
+        center: [-1.1434,-76.3953],
+        zoom: 9,
+        label: "Waorani Territory"
+    },
+    "Cofan Sinangoe": {
+        data: cofanSinangoe,
+        center: [0.1,-77.2786],
+        zoom: 10,
+        label: "Cofan Sinangoe Territory"
+    },
+    "Cofan Bermejo": {
+        data: cofanBermejo,
+        center: [0.3,-77.19118],
+        zoom: 11,
+        label: "Cofan Bermejo Territory"
+    },
+    "Cofan Dureno": {
+        data: cofanDureno,
+        center: [0.005,-76.65],
+        zoom: 12,
+        label: "Cofan Dureno Territory"
+    },
+    "Cofan Duvuno": {
+        data: cofanDuvuno,
+        center: [0.00696,-77.01630],
+        zoom: 11,
+        label: "Cofan Duvuno Territory"
+    },
+    "Shuar Arutam": {
+        data: shuarArutam,
+        center: [-3.25,-77.9541],
+        zoom: 10,
+        label: "Shuar Arutam Territory"
+    },
+    "Indigenous Territories (RAISG)": {
+        data: territoriosRAISG,
+        center: [-1.7, -77.5], // Example coordinates
+        zoom: 7, // Example zoom level
+        label: "Indigenous Territories (RAISG)"
+    },
+    // "Zona Intangible Tagaeri-Taromenani": {
+    //     data: zonaITT,
+    //     center: [-1.35103,-75.7],
+    //     zoom: 9,
+    //     label: "Zona Intangible Tagaeri-Taromenani"
+    // }
 };
 
 var territoryLayers = {};
 
 function addTerritories() {
     Object.keys(territories).forEach(key => {
-        // Convert the GeoJSON object to a Leaflet layer with a specific style
-        var layer = L.geoJSON(territories[key], {
+        var territory = territories[key];
+        var layer = L.geoJSON(territory.data, {
             style: function(feature) {
                 return {
-                    color: 'green', // Change as needed, sets the border color of the polygon
-                    fillColor: 'green', // Change as needed, sets the fill color of the polygon
-                    fillOpacity: 0, // Adjust for desired transparency (0 is fully transparent, 1 is fully opaque)
-                    weight: 2 // Sets the thickness of the border
+                    color: 'green',
+                    fillColor: 'green',
+                    fillOpacity: 0,
+                    weight: 2
                 };
-            },
-            onEachFeature: function (feature, layer) {
-                layer.bindPopup(feature.properties.name);
             }
         });
-        // Initially, do not add to map; just store it
-        territoryLayers[key] = layer;
+        // Store the layer within the same territory object for easy reference
+        territory.layer = layer;
     });
 }
-
-
 addTerritories();
 
-var customControl = L.control({position: 'topleft'});  // Changed from 'bottomright' to 'topleft'
+var customControl = L.control({position: 'topleft'});
 
 customControl.onAdd = function(map) {
-    var div = L.DomUtil.create('div', 'custom-buttons');  // Ensure this class matches the one styled above
+    var div = L.DomUtil.create('div', 'custom-buttons');
+    
+    // Create the reset button with a specific class for styling
+    var resetBtn = L.DomUtil.create('button', 'territory-button reset-view-button', div);
+    resetBtn.innerHTML = "Reset View";
+    resetBtn.onclick = function() {
+        Object.values(territories).forEach(t => {
+            if (map.hasLayer(t.layer)) {
+                map.removeLayer(t.layer);  // Turn off all territory layers
+            }
+        });
+        map.setView([-1.7, -77.5], 7);  // Resetting to the initial view
+    };
+
+    // Add buttons for each territory
     Object.keys(territories).forEach(key => {
         var btn = L.DomUtil.create('button', 'territory-button', div);
         btn.innerHTML = key;
         btn.onclick = function() {
-            toggleTerritory(key);
+            toggleTileLayer(key);
         };
     });
+    
     return div;
 };
-
 customControl.addTo(map);
 
 
-function toggleTerritory(key) {
-    var layer = territoryLayers[key];
-    if (map.hasLayer(layer)) {
-        map.removeLayer(layer); // If layer is on, turn it off
-    } else {
-        Object.values(territoryLayers).forEach(l => map.removeLayer(l)); // Turn off all other layers
-        map.addLayer(layer); // Turn on the selected layer
-        map.fitBounds(layer.getBounds()); // Zoom to the layer's bounds
+function toggleTileLayer(territoryName) {
+    var territory = territories[territoryName];
+    if (!territory) {
+        console.error("Territory not found:", territoryName);
+        return; // Stop execution if the territory is not found
     }
+
+    map.closePopup(); // Close any open popups
+    Object.values(territories).forEach(t => {
+        if (map.hasLayer(t.layer)) {
+            map.removeLayer(t.layer); // Remove all other layers
+        }
+    });
+
+    map.addLayer(territory.layer); // Add the required layer
+    map.setView(territory.center, territory.zoom); // Set view to center and zoom without animation
+    var popup = L.popup()
+        .setLatLng(territory.center)
+        .setContent(territory.label)
+        .openOn(map);
 }
+
 
 addTerritories();
 customControl.addTo(map);
@@ -108,7 +178,7 @@ L.control.zoom({
 }).addTo(map);
 
 L.control.scale({ 
-    position: 'bottomright', 
+    position: 'bottomleft', 
     metric: true,
     imperial: false,
   }).addTo(map);

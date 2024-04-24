@@ -1,12 +1,15 @@
 #map {
-    margin-top: 50px; /* Adjust top marging as needed */
-    height: 600px; /* Adjust height as needed */
-    position: relative;
+    margin-top: 0px; /* No top margin */
+    height: 600px; /* Fixed height */
+    width: 75%; /* Set width to 75% of the parent container */
+    position: relative; /* Maintain relative positioning */
+    margin-left: auto; /* Center the map horizontally */
+    margin-right: auto; /* Center the map horizontally */
 }
 
 #slider-container {
     position: absolute;
-    bottom: 85px;
+    bottom: 60px;
     left: 40%;
     transform: translateX(-50%);
     width: 50%;
@@ -83,4 +86,24 @@
 
 .territory-button:hover {
     background: #367B3F; /* Darker green on hover */
+}
+
+h1 {
+    font-family: 'Lato', sans-serif; /* Consistent font for the page */
+    text-align: center; /* Centers the title on the page */
+    color: #3c7c3e; /* Green color to match button styling */
+    margin-top: 20px; /* Spacing from the top of the page */
+    margin-bottom: 20px; /* Spacing above the map and slider */
+}
+
+.reset-view-button {
+    background-color: #e94e46; /* Red color for the reset button */
+    color: white; /* White text color for better visibility */
+    border: none; /* Optional: removes border if present */
+    border-radius: 4px; /* Keeps consistent styling with other buttons */
+    margin-bottom: 4px; /* Adds some spacing between this button and others */
+}
+
+.reset-view-button:hover {
+    background-color: #ba321a; /* Darker red on hover for interactive feedback */
 }

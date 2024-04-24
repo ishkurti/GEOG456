@@ -38,8 +38,8 @@ var territories = {
     "Cofan Bermejo": cofanBermejo,
     "Cofan Dureno": cofanDureno,
     "Cofan Duvuno": cofanDuvuno,
-    "Reserva Cuyabeno": reservaCuyabeno,
-    "Reserva Yasuní": reservaYasuni,
+    //"Reserva Cuyabeno": reservaCuyabeno,
+    //"Reserva Yasuní": reservaYasuni,
     "Zona Intangible Tagaeri-Taromenani": zonaITT
 };
 
@@ -109,7 +109,7 @@ L.control.zoom({
 }).addTo(map);
 
 L.control.scale({ 
-    position: 'bottomright', 
+    position: 'bottomleft', 
     metric: true,
     imperial: false,
   }).addTo(map);
