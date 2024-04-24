@@ -7,7 +7,6 @@ var OSM = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}
     attribution: 'GEOG456 Final Project by Ina Shkurti'
 }).addTo(map).bringToBack();
 
-
 var myTileLayer = L.tileLayer('https://cartocollective.blob.core.windows.net/deforestation/2001/{z}/{x}/{y}.png', {
     minZoom: 1,
     maxZoom: 12,
