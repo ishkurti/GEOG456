@@ -7,30 +7,41 @@
     margin-right: auto; /* Center the map horizontally */
 }
 
+#map-container {
+    position: relative; /* Ensure the map container has relative positioning */
+}
+
 #slider-container {
     position: absolute;
-    bottom: 60px;
-    left: 40%;
-    transform: translateX(-50%);
-    width: 50%;
+    bottom: 10px; /* Adjust vertical positioning */
+    left: 120px; /* Adjust horizontal positioning */
+    width: 60%;
     display: flex;
-    justify-content: center; /* Align slider to the center */
     align-items: center;
-    z-index: 1000; /* Ensure the slider is on top of the map */
-    border-radius: 5px; /* Optional: Add border radius for rounded corners */
-    padding: 10px; /* Adjusted padding for a larger size */
+    z-index: 1000;
+    border-radius: 5px;
+    padding: 10px;
     background: white;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
 }
 
+
+#slider-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10px; /* Adjust spacing between title and slider */
+}
+
 #mySlider {
+    flex: 1; /* Allow the slider to take up remaining space */
     -webkit-appearance: none;
     width: 100%;
     height: 15px;
     border-radius: 5px;  
     background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
+    opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
@@ -41,17 +52,17 @@
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #e00000;
+    background: #ff0f0f;
     cursor: pointer;
-  }
-  
-  #mySlider:-moz-range-thumb {
+}
+
+#mySlider:-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background: #04AA6D;
     cursor: pointer;
-  }
+}
 
 #year-text {
     margin-top: 2px; /* Add margin to separate from the slider */
@@ -82,6 +93,7 @@
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition for hover effect */
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 }
 
 .territory-button:hover {
@@ -94,6 +106,7 @@ h1 {
     color: #3c7c3e; /* Green color to match button styling */
     margin-top: 20px; /* Spacing from the top of the page */
     margin-bottom: 20px; /* Spacing above the map and slider */
+    font-weight: bold;
 }
 
 .reset-view-button {
@@ -102,8 +115,33 @@ h1 {
     border: none; /* Optional: removes border if present */
     border-radius: 4px; /* Keeps consistent styling with other buttons */
     margin-bottom: 4px; /* Adds some spacing between this button and others */
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .reset-view-button:hover {
     background-color: #ba321a; /* Darker red on hover for interactive feedback */
+}
+
+/* CSS for the layer control */
+.layer-control {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for layer group titles */
+.layer-group-title {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* CSS for layer checkboxes and labels */
+.layer-input {
+    margin-right: 5px;
+}
+
+.layer-label {
+    margin-right: 15px;
 }

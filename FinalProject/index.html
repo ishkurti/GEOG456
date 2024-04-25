@@ -18,13 +18,17 @@
 
   <main>
 
-    <h1>Forest Cover Loss in the Ecuadorian Amazon (2001-2022)</h1>
+    <h1>Forest Cover Loss & Environmental Threats in the Ecuadorian Amazon</h1>
 
-    <div id="slider-container">
-    <input id="mySlider" type="range" value="2001" name="Test" min="2001" max="2022" oninput="mySlider(value)">
-
-    <div id="year-text">2001</div>
+    <div id="map-container">
+        <div id="map" style="width: 100%; height: 600px;"></div>
+        <div id="slider-container">
+            <div id="slider-title">Forest Cover Loss</div>
+            <input id="mySlider" type="range" value="2001" name="Test" min="2001" max="2022" oninput="mySlider(value)">
+            <div id="year-text">2001</div>
+        </div>
     </div>
+   
     <div id="map" style="width: 100%; height: 600px;"></div>
  
     <script src="./data/cofanBermejo.js"></script>
@@ -40,8 +44,14 @@
     <script src="./data/viasPrincipales.js"></script>
     <script src="./data/zonaITT.js"></script>
     <script src="./data/ecuadorRAISG.js"></script>
-   
-   
+    <script src="./threats/areasProtegidas.js"></script>
+    <script src="./threats/bloquesPetro.js"></script>
+    <script src="./threats/camposPetro.js"></script>
+    <script src="./threats/catastroMinero.js"></script>
+    <script src="./threats/oleoductos.js"></script>
+    <script src="./threats/palmaAfricana.js"></script>
+    <script src="./threats/pozosPetro.js"></script>
+    <script src="./threats/bosquesProtectores.js"></script>
    
     <!-- <script src="./js/markers.js"></script> -->
     <script src="./scriptSliderV2.js"></script>
