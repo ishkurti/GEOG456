@@ -1,4 +1,4 @@
-var map = L.map('map').setView([-1.85, -77.8], 7);
+var map = L.map('map').setView([-1.85, -77], 7);
 
 var OSM = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     minZoom: 1,
@@ -38,43 +38,43 @@ var territories = {
     },
     "Siekopai Aguarico": {  
         data: siekopaiAguarico,
-        center: [-0.33052,-76.35], 
+        center: [-0.33052,-76.21940], 
         zoom: 11,
         label: "Siekopai Aguarico Territory"
     },
     "Waorani": {
         data: waoraniTitulado,
-        center: [-1.1434,-76.75],
+        center: [-1.1434,-76.3953],
         zoom: 9,
         label: "Waorani Territory"
     },
     "Cofan Sinangoe": {
         data: cofanSinangoe,
-        center: [0.1,-77.5],
+        center: [0.1,-77.2786],
         zoom: 10,
         label: "Cofan Sinangoe Territory"
     },
     "Cofan Bermejo": {
         data: cofanBermejo,
-        center: [0.3,-77.29118],
+        center: [0.3,-77.19118],
         zoom: 11,
         label: "Cofan Bermejo Territory"
     },
     "Cofan Dureno": {
         data: cofanDureno,
-        center: [0.005,-76.7],
+        center: [0.005,-76.65],
         zoom: 12,
         label: "Cofan Dureno Territory"
     },
     "Cofan Duvuno": {
         data: cofanDuvuno,
-        center: [0.00696,-77.11630],
+        center: [0.00696,-77.01630],
         zoom: 11,
         label: "Cofan Duvuno Territory"
     },
     "Shuar Arutam": {
         data: shuarArutam,
-        center: [-3.25,-78.1],
+        center: [-3.25,-77.9541],
         zoom: 10,
         label: "Shuar Arutam Territory"
     },
@@ -228,6 +228,55 @@ var oilBlocks = L.geoJSON(bloquesPetro, {
   });
   oilBlocks.addTo(map);
 
+//   // Function to toggle labels for oilBlocks layer
+// function toggleOilBlockLabels(showLabels) {
+//     if (showLabels) {
+//         if (map.getZoom() >= 9 && map.getZoom() <= 16) {
+//             oilBlocks.eachLayer(function (layer) {
+//                 var label = L.marker(layer.getBounds().getCenter(), {
+//                     icon: L.divIcon({
+//                         className: 'block-label',
+//                         html: layer.feature.properties.num_bq,
+//                         iconSize: [30, 10] // Adjust icon size as needed
+//                     })
+//                 }).addTo(map);
+//                 layer.label = label; // Store reference to the label
+//             });
+//         }
+//     } else {
+//         oilBlocks.eachLayer(function (layer) {
+//             if (layer.label) {
+//                 map.removeLayer(layer.label); // Remove the label from the map
+//                 delete layer.label; // Remove reference to the label
+//             }
+//         });
+//     }
+// }
+
+// // Add event listener to toggle labels when oilBlocks layer is added or removed from map
+// map.on('overlayadd', function (event) {
+//     if (event.layer === oilBlocks) {
+//         toggleOilBlockLabels(true); // Show labels when oilBlocks layer is added
+//     }
+// });
+
+// map.on('overlayremove', function (event) {
+//     if (event.layer === oilBlocks) {
+//         toggleOilBlockLabels(false); // Hide labels when oilBlocks layer is removed
+//     }
+// });
+
+// // Add event listener to toggle labels when zoom level changes
+// map.on('zoomend', function () {
+//     if (map.hasLayer(oilBlocks)) {
+//         var currentZoom = map.getZoom();
+//         if (currentZoom >= 9 && currentZoom <= 16) {
+//             toggleOilBlockLabels(true); // Show labels when zoom level is within range
+//         } else {
+//             toggleOilBlockLabels(false); // Hide labels when zoom level is outside range
+//         }
+//     }
+// });
 
 var nationalParks = L.geoJSON(areasProtegidas, {
     style: {
@@ -376,7 +425,7 @@ var overlayMaps = {
     "Oil Wells": pozosLayer,
     "Oil Pipelines": pipelines,
     "Mining Concessions": mining,
-    "African Palm Areas": palmOil,
+    "Afrian Palm Areas": palmOil,
     "National Parks": nationalParks,
     "Protected Forests": protectedForests
   };

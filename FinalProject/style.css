@@ -3,8 +3,6 @@
     height: 600px; /* Fixed height */
     width: 75%; /* Set width to 75% of the parent container */
     position: relative; /* Maintain relative positioning */
-    margin-left: auto; /* Center the map horizontally */
-    margin-right: auto; /* Center the map horizontally */
 }
 
 #map-container {
@@ -13,8 +11,8 @@
 
 #slider-container {
     position: absolute;
-    bottom: 10px; /* Adjust vertical positioning */
-    left: 120px; /* Adjust horizontal positioning */
+    bottom: 25px; /* Adjust vertical positioning */
+    left: 145px; /* Adjust horizontal positioning */
     width: 60%;
     display: flex;
     align-items: center;
@@ -103,7 +101,7 @@
 h1 {
     font-family: 'Lato', sans-serif; /* Consistent font for the page */
     text-align: center; /* Centers the title on the page */
-    color: #3c7c3e; /* Green color to match button styling */
+    color: #103e13; /* Green color to match button styling */
     margin-top: 20px; /* Spacing from the top of the page */
     margin-bottom: 20px; /* Spacing above the map and slider */
     font-weight: bold;
@@ -123,25 +121,4 @@ h1 {
     background-color: #ba321a; /* Darker red on hover for interactive feedback */
 }
 
-/* CSS for the layer control */
-.layer-control {
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-/* CSS for layer group titles */
-.layer-group-title {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-/* CSS for layer checkboxes and labels */
-.layer-input {
-    margin-right: 5px;
-}
-
-.layer-label {
-    margin-right: 15px;
-}
