@@ -27,15 +27,13 @@
   position: absolute;
   z-index:9;
   cursor: ew-resize;
-  /*set the appearance of the slider:*/
-  width: 30px;
-  height: 30px;
-  stroke: 20px;
-  background-color: #ff01e6;
-  opacity: 0.7;
-  border-radius: 50%;
-  border: 2px solid black;
+  width: 55px; /* Width of your PNG image */
+  height: 40px; /* Height of your PNG image */
+  background-image: url('./images/tractor.png'); 
+  background-size: cover;
+  opacity: 1;
 }
+
 h1{
   font-family: 'Lato', sans-serif;
   margin-left: 12px;
@@ -146,7 +144,7 @@ function initComparisons() {
 
   <h1>Showing change using a comparison window</h1>
 
-<p>Click and slide the pink circle to compare two images:</p>
+<p>Click and slide the yellow tractor to compare two images:</p>
 
 <div class="img-comp-container">
   <div class="img-comp-img">
